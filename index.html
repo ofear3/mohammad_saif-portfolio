@@ -4,83 +4,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Saif | Portfolio</title>
+     <link rel="icon" href="images/mypic.jpg">
+    <!-- Tailwind CDN  -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        html {
+            scroll-padding-top: 70px;
+        }
+    </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-white text-gray-800">
 
-    <!-- Header Section -->
-    <header class="fixed top-0 w-full bg-white shadow-md z-50">
-        <nav class="h-[50px] flex items-center px-6 bg-gray-100 shadow-md">
-            <ul class="flex gap-10 list-none">
-                <li><a href="#" class="hover:text-blue-500">Home</a></li>
-                <li><a href="#" class="hover:text-blue-500">About</a></li>
-                <li><a href="#" class="hover:text-blue-500">Projects</a></li>
-                <li><a href="#" class="hover:text-blue-500">Contact</a></li>
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed top-0 w-full bg-gray-100 shadow z-50">
+        <div class="max-w-6xl mx-auto px-4 h-[55px] flex items-center justify-between">
+
+            <h2 class="text-xl font-bold text-blue-900">Saif</h2>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex gap-6 text-sm font-medium">
+                <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
+                <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
+                <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
             </ul>
-        </nav>
-    </header>
 
-    <!-- Main Section -->
-    <main>
-        <div class="px-20 mt-15">
-            <img src="mypic.jpg" class="h-[200px] w-[400px]">
-            <p class="text-blue-900 font-medium">This is Me Md. Saif Al Islam</p>
+            <!-- Mobile Menu Button -->
+            <button id="openMenu" class="md:hidden text-2xl cursor-pointer">☰</button>
+        </div>
+    </nav>
+
+    <!-- ================= MOBILE SIDE NAV  ================= -->
+    <div id="overlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+
+    <div id="sideNav"
+        class="fixed top-0 right-0 h-full w-[260px] bg-white shadow-lg translate-x-full transition-transform duration-300 z-50 flex flex-col">
+
+        <div class="h-[55px] flex items-center justify-between px-4 border-b">
+            <h3 class="font-semibold">Menu</h3>
+            <button id="closeMenu" class="text-xl cursor-pointer">✕</button>
         </div>
 
-       <section>  
-        <div class="px-5 mt-5">
-            <h1 class="text-purple-600 font-bold text-center text-[25px]">About Me</h1>
-            <p class="text-black-100 text-justify">I am a passionate learner and aspiring web developer
-                 with a strong interest in modern web technologies. I enjoy building clean, responsive, and user-friendly interfaces, and I’m 
-                 always eager to improve my skills by 
-                 learning and practicing new concepts.</p>
-        </div>
-       </section> 
-
-        <div class="px-5 mt-5">
-            <h1 class="text-purple-600 font-bold text-center text-[25px]">Projects</h1>
-            <div class="max-w-sm bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden">
-    
-    <!-- Project Image -->
-    <img 
-        src="project-1.png" 
-        alt="Project Image"
-        class="w-full h-48 object-cover"
-    >
-
-    <!-- Card Content -->
-    <div class="p-6">
-        <h3 class="text-xl font-semibold text-gray-800">
-            Number Guessing Game
-        </h3>
-
-        <p class="text-gray-600 text-sm mt-2">
-           A simple number guessing game where users try to guess a randomly generated number.
-        </p>
-
-        <!-- Tech Stack -->
-        <div class="flex flex-wrap gap-2 mt-4">
-            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">HTML</span>
-            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">CSS</span>
-            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">JavaScript</span>
-        </div>
-
-        <!-- Buttons -->
-        <div class="flex gap-3 mt-5">
-            <a href="https://ofear3.github.io/js-console-programs/program3.html" target="_blank" class="flex-1 text-center bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-                Live Demo
-            </a>
-            <a href="#" class="flex-1 text-center border border-gray-300 py-2 rounded-lg text-sm hover:bg-gray-100 transition">
-                Code
-            </a>
-        </div>
+        <ul class="flex flex-col gap-4 p-6 text-sm font-medium">
+            <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+            <li><a href="#about" class="hover:text-blue-600">About</a></li>
+            <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
+            <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
+            <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+        </ul>
     </div>
-</div>
 
-        </div>
+    <!-- ================= MAIN ================= -->
+    <main class="pt-[90px]">
+
+        <!-- ================= HERO ================= -->
+        <section id="home" class="max-w-6xl mx-auto px-4 py-10 flex flex-col lg:flex-row items-center gap-10">
+            <img src="images/mypic.jpg" class="w-[260px] h-[260px] object-cover rounded-xl shadow">
+
+            <div class="text-center lg:text-left">
+                <h1 class="text-3xl font-bold">
+                    <span class="text-blue-600">Md. Saif Al Islam</span>
+                </h1>
+                <p class="mt-4 text-gray-600 max-w-md">
+                    Beginner web developer learning and building responsive websites using modern tools.
+                </p>
+            </div>
+        </section>
+
+
+
+        <!-- ================= ABOUT ================= -->
+        <section id="about" class="max-w-4xl mx-auto px-4 py-8">
+            <h2 class="text-2xl font-bold text-center text-purple-900">About Me</h2>
+            <hr class="my-6 w-2/3 mx-auto">
+            <p class="mt-5 text-justify text-gray-700">
+                I am a passionate learner and aspiring web developer. I enjoy practicing HTML,
+                Tailwind CSS and JavaScript by building small projects.
+            </p>
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+        <section id="skills" class="max-w-4xl mx-auto px-4 py-8">
+            <h2 class="text-2xl font-bold text-center text-purple-900">Skills</h2>
+            <hr class="my-6 w-2/3 mx-auto">
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-8 text-center">
+                <div class="p-4 bg-gray-100 rounded shadow">HTML</div>
+                <div class="p-4 bg-gray-100 rounded shadow">CSS</div>
+                <div class="p-4 bg-gray-100 rounded shadow">Tailwind CSS</div>
+                <div class="p-4 bg-gray-100 rounded shadow">JavaScript</div>
+                <div class="p-4 bg-gray-100 rounded shadow">Git</div>
+                <div class="p-4 bg-gray-100 rounded shadow">Basic Python</div>
+            </div>
+        </section>
+
+
+
+        <!-- ================= PROJECTS ================= -->
+        <section id="projects" class="max-w-6xl mx-auto px-4 py-10">
+            <h2 class="text-2xl font-bold text-center text-purple-900">Projects</h2>
+            <hr class="my-6 w-2/3 mx-auto">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+
+                <!-- Card -->
+                <div
+                    class="bg-gray-100 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition flex flex-col h-[360px]">
+                    <img src="images/project-1.png" class="h-[180px] w-full object-cover rounded-t-xl">
+
+                    <div class="p-4 flex-1 flex flex-col">
+                        <h3 class="font-semibold">Number Guessing Game</h3>
+                        <p class="text-sm text-gray-600 mt-2">
+                            Simple JavaScript based game.
+                        </p>
+                        <div class="flex gap-2 mt-9">
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">HTML</span>
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">CSS</span>
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+                <div
+                    class="bg-gray-100 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition flex flex-col h-[360px]">
+                    <img src="images/portfolio.png" class="h-[180px] w-full object-cover rounded-t-xl">
+
+                    <div class="p-4 flex-1 flex flex-col">
+                        <h3 class="font-semibold">Portfolio Website</h3>
+                        <p class="text-sm text-gray-600 mt-2">
+                            Responsive personal website.
+                        </p>
+                        <div class="flex gap-2 mt-9">
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">HTML</span>
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+                <div
+                    class="bg-gray-100 rounded-xl shadow hover:shadow-xl hover:-translate-y-1 transition flex flex-col h-[360px]">
+                    <img src="images/codecamp.png" class="h-[180px] w-full object-cover rounded-t-xl">
+
+                    <div class="p-4 flex-1 flex flex-col">
+                        <h3 class="font-semibold">CodeCamp Landing Page</h3>
+                        <p class="text-sm text-gray-600 mt-2">
+                            Responsive CodeCamp Page 2026
+                        </p>
+                        <div class="flex gap-2 mt-9">
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">HTML</span>
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">CSS</span>
+                            <span class="px-3 py-1 text-xs bg-white border rounded-full">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- ================= CONTACT ================= -->
+        <section id="contact" class="max-w-md mx-auto px-4 py-10">
+            <h2 class="text-2xl font-bold text-center text-purple-900">Contact Me</h2>
+            <hr class="my-6 w-2/3 mx-auto">
+
+            <form class="mt-6 space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full border p-2 rounded">
+                <input type="email" placeholder="Your Email" class="w-full border p-2 rounded">
+                <textarea placeholder="Your Message" class="w-full border p-2 rounded resize-none overflow-hidden"
+                    oninput="this.style.height='auto'; this.style.height=this.scrollHeight+'px';"></textarea>
+
+                <button class=" cursor-pointer w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                    Send Message
+                </button>
+            </form>
+        </section>
+
     </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-gray-100 mt-10">
+        <div class="max-w-6xl mx-auto px-4 py-6 text-center">
+            <div class="flex justify-center gap-6 text-xl mb-3">
+                <!-- Facebook -->
+                <a href="https://facebook.com" target="_blank" class="text-blue-600 hover:text-blue-700 transition">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.696h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z" />
+                    </svg>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com" target="_blank" class="text-gray-800 hover:text-black transition">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.51 11.51 0 013.003-.404c1.018.005 2.043.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.12 3.176.77.84 1.234 1.911 1.234 3.221 0 4.61-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com" target="_blank" class="text-blue-700 hover:text-blue-800 transition">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M22.23 0H1.77C.79 0 0 .774 0 1.727v20.545C0 23.227.79 24 1.77 24h20.46C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.23 0zM7.09 20.452H3.56V9h3.53v11.452zM5.325 7.433c-1.13 0-2.048-.92-2.048-2.05 0-1.13.918-2.048 2.048-2.048 1.13 0 2.05.918 2.05 2.048 0 1.13-.92 2.05-2.05 2.05zM20.452 20.452h-3.53v-5.57c0-1.328-.027-3.037-1.85-3.037-1.85 0-2.135 1.445-2.135 2.94v5.667h-3.53V9h3.39v1.561h.047c.472-.9 1.623-1.85 3.34-1.85 3.57 0 4.23 2.35 4.23 5.41v6.33z" />
+                    </svg>
+                </a>
+            </div>
+
+            <p class="text-sm text-gray-600">
+                © 2026 Md. Saif Al Islam. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ================= SCRIPT ================= -->
+    <script>
+        const openBtn = document.getElementById("openMenu");
+        const closeBtn = document.getElementById("closeMenu");
+        const sideNav = document.getElementById("sideNav");
+        const overlay = document.getElementById("overlay");
+
+        openBtn.onclick = () => {
+            sideNav.classList.remove("translate-x-full");
+            overlay.classList.remove("hidden");
+        };
+
+        closeBtn.onclick = () => {
+            sideNav.classList.add("translate-x-full");
+            overlay.classList.add("hidden");
+        };
+
+        overlay.onclick = () => {
+            sideNav.classList.add("translate-x-full");
+            overlay.classList.add("hidden");
+        };
+    </script>
+
 </body>
 
 </html>
